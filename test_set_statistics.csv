@@ -1,0 +1,121 @@
+Doggo;Correct guesses;Incorrect guesses;Accuracy;Most commonly mistaken as;Count of mistakes for this breed
+chihuahua;2;30;0.062;dingo;3
+japanese spaniel;14;22;0.389;papillon;5
+maltese dog;8;42;0.16;samoyed;9
+pekinese;4;26;0.133;papillon;2
+shih tzu;8;36;0.182;papillon;2
+blenheim spaniel;7;29;0.194;welsh springer spaniel;6
+papillon;12;28;0.3;toy terrier;4
+toy terrier;4;30;0.118;ibizan hound;3
+rhodesian ridgeback;6;28;0.176;irish terrier;3
+afghan hound;13;35;0.271;bernese mountain dog;3
+basset;6;30;0.167;beagle;3
+beagle;8;30;0.211;basenji;5
+bloodhound;6;32;0.158;irish terrier;4
+bluetick;4;30;0.118;walker hound;2
+black and tan coonhound;7;25;0.219;gordon setter;4
+walker hound;4;26;0.133;beagle;4
+english foxhound;13;19;0.406;beagle;3
+redbone;1;29;0.033;vizsla;3
+borzoi;4;26;0.133;kuvasz;6
+irish wolfhound;4;40;0.091;soft coated wheaten terrier;3
+italian greyhound;2;34;0.056;kelpie;3
+whippet;4;34;0.105;saluki;4
+ibizan hound;12;24;0.333;whippet;3
+norwegian elkhound;10;30;0.25;scottish deerhound;3
+otterhound;7;23;0.233;norwich terrier;2
+saluki;4;36;0.1;basenji;3
+scottish deerhound;17;29;0.37;standard schnauzer;3
+weimaraner;6;26;0.188;mexican hairless;3
+staffordshire bullterrier;5;27;0.156;flat coated retriever;3
+american staffordshire terrier;1;31;0.031;beagle;2
+bedlington terrier;11;25;0.306;english setter;3
+border terrier;6;30;0.167;otterhound;2
+kerry blue terrier;14;21;0.4;giant schnauzer;5
+irish terrier;2;31;0.061;rhodesian ridgeback;4
+norfolk terrier;8;28;0.222;norwich terrier;5
+norwich terrier;7;29;0.194;irish terrier;4
+yorkshire terrier;5;28;0.152;australian terrier;2
+wire haired fox terrier;8;23;0.258;maltese dog;2
+lakeland terrier;2;38;0.05;australian terrier;2
+sealyham terrier;25;15;0.625;samoyed;4
+airedale;4;36;0.1;bloodhound;4
+cairn;6;34;0.15;soft coated wheaten terrier;3
+australian terrier;8;32;0.2;yorkshire terrier;7
+dandie dinmont;5;31;0.139;old english sheepdog;5
+boston bull;9;27;0.25;toy terrier;3
+miniature schnauzer;3;27;0.1;bluetick;2
+giant schnauzer;3;29;0.094;curly coated retriever;5
+standard schnauzer;2;28;0.067;scottish deerhound;3
+scotch terrier;17;15;0.531;groenendael;5
+tibetan terrier;4;38;0.095;shih tzu;4
+silky terrier;12;24;0.333;yorkshire terrier;4
+soft coated wheaten terrier;5;27;0.156;maltese dog;3
+west highland white terrier;5;29;0.147;samoyed;4
+lhasa;3;33;0.083;maltese dog;4
+flat coated retriever;4;26;0.133;scotch terrier;3
+curly coated retriever;8;23;0.258;flat coated retriever;5
+golden retriever;5;25;0.167;vizsla;3
+labrador retriever;1;34;0.029;otterhound;2
+chesapeake bay retriever;3;29;0.094;rhodesian ridgeback;3
+german short haired pointer;5;26;0.161;walker hound;3
+vizsla;4;27;0.129;bloodhound;4
+english setter;4;28;0.125;old english sheepdog;3
+irish setter;5;26;0.161;sussex spaniel;5
+gordon setter;3;28;0.097;appenzeller;4
+brittany spaniel;6;24;0.2;beagle;4
+clumber;5;25;0.167;west highland white terrier;3
+english springer;9;23;0.281;border collie;4
+welsh springer spaniel;5;25;0.167;saint bernard;6
+cocker spaniel;1;31;0.031;groenendael;3
+sussex spaniel;11;19;0.367;norwich terrier;3
+irish water spaniel;6;24;0.2;flat coated retriever;4
+kuvasz;10;20;0.333;samoyed;6
+schipperke;4;26;0.133;groenendael;7
+groenendael;9;21;0.3;affenpinscher;3
+malinois;4;26;0.133;beagle;3
+briard;2;29;0.065;scotch terrier;4
+kelpie;3;28;0.097;rhodesian ridgeback;3
+komondor;10;20;0.333;samoyed;3
+old english sheepdog;10;24;0.294;pug;2
+shetland sheepdog;6;26;0.188;collie;6
+collie;5;25;0.167;border collie;5
+border collie;4;26;0.133;entlebucher;4
+bouvier des flandres;5;25;0.167;flat coated retriever;2
+rottweiler;7;23;0.233;gordon setter;9
+german shepherd;4;27;0.129;weimaraner;2
+doberman;4;26;0.133;miniature pinscher;6
+miniature pinscher;7;30;0.189;kelpie;5
+greater swiss mountain dog;7;27;0.206;entlebucher;7
+bernese mountain dog;20;23;0.465;entlebucher;5
+appenzeller;7;24;0.226;bernese mountain dog;3
+entlebucher;17;23;0.425;bernese mountain dog;5
+boxer;3;27;0.1;basenji;3
+bull mastiff;5;26;0.161;border terrier;3
+tibetan mastiff;2;29;0.065;gordon setter;3
+french bulldog;0;32;0.0;boston bull;3
+great dane;2;28;0.067;irish wolfhound;3
+saint bernard;9;25;0.265;walker hound;4
+eskimo dog;1;29;0.033;malamute;7
+malamute;5;31;0.139;irish wolfhound;2
+siberian husky;7;31;0.184;malamute;3
+affenpinscher;3;27;0.1;scotch terrier;5
+basenji;10;32;0.238;dhole;4
+pug;4;36;0.1;brabancon griffon;3
+leonberg;17;25;0.405;dhole;4
+newfoundland;4;36;0.1;gordon setter;3
+great pyrenees;8;34;0.19;samoyed;11
+samoyed;22;22;0.5;great pyrenees;5
+pomeranian;11;33;0.25;papillon;3
+chow;6;32;0.158;pomeranian;6
+keeshond;9;23;0.281;pekinese;2
+brabancon griffon;12;18;0.4;bloodhound;4
+pembroke;5;31;0.139;dingo;5
+cardigan;2;30;0.062;boston bull;5
+toy poodle;1;29;0.033;sussex spaniel;3
+miniature poodle;1;30;0.032;newfoundland;3
+standard poodle;0;31;0.0;irish water spaniel;3
+mexican hairless;11;21;0.344;kelpie;2
+dingo;6;25;0.194;dhole;4
+dhole;8;22;0.267;norwich terrier;3
+african hunting dog;21;12;0.636;kelpie;2
