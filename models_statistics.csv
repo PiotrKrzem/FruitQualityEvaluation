@@ -1,2 +1,0 @@
-Model path;Graph path;Accuracy;Loss;Image dim;Convolution layers;Convolution activation;Convolution sizes;Middle layer;Dense layers;Dense activation;Dropout rate;Optimizer;Learning rate;Epochs;Batch size;
-./Models/alexy-64x64-acc 0.299-id 1643408372.9734535.h5;./Graphs/graph-acc 0.299-1643408372.9734535.png;0.299;2.928;64;[[16, 16], [32, 32], [64, 64]];relu;[3, 3, 3];max_pool;[1024, 1024];relu;0.2;adam;0.001;20;2048;

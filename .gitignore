@@ -1,7 +1,8 @@
-.DS_Store
+*/.DS_Store
 fruits/*
 fruits_combined/*
 Graphs/*
 Models/*
 Processed_Images/*
 Processed_Paths/*
+*.csv

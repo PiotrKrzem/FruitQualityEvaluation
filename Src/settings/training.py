@@ -4,6 +4,7 @@ from enum import Enum
 # Enum that reserves names for predefined training sequences
 class BuiltInTraining(Enum):
     DEFAULT = "default"
+    MINI = "mini"
     UNINITIALIZED = "__uninitialized__"
 
 # Enum defining optimizer types
@@ -16,7 +17,6 @@ class TrainingSettings:
     """Class to store training parameters.
 
     Parameters:
-    - dropout_rate (float): Probability of deactivating the output of any neuron. A number between 0 and 1, helps prevent overfitting.
     - optimizer (OptimizerType): Optimizer used in the network. Options: 'SGD' (momentum gradient descent), 'RMSprop' (decaying learning rate), 'adam' (both). 'adam' is generally a good choice.
     - learning_rate (float): Learning rate for the optimizer. Higher values make learning easier initially but may hinder long-term accuracy. Value between 0.0 - 0.01.
     - epochs (int): Number of epochs to perform during training.
@@ -27,7 +27,6 @@ class TrainingSettings:
     """
 
     def __init__(self,
-                 dropout_rate: float = 0.2,
                  optimizer: OptimizerType = OptimizerType.ADAM,
                  learning_rate: float = 0.001,
                  epochs: int = 30,
@@ -49,7 +48,6 @@ class TrainingSettings:
         - verbose: bool, whether to display verbose training information
         """
 
-        self.dropout_rate = dropout_rate
         self.optimizer = optimizer
         self.learning_rate = learning_rate
         self.epochs = epochs
@@ -67,19 +65,6 @@ class TrainingSettings:
         optimizer_dict = {OptimizerType.ADAM: 'adam', OptimizerType.SGD: 'SGD', OptimizerType.RMS_PROP: 'RMSProp'}
 
         return ";".join([
-            f"{self.dropout_rate}"
-            f"{optimizer_dict[self.optimizer]}"
-            f"{self.learning_rate}"
-            f"{self.epochs}"
-            f"{self.batch_size}"
-            f"{self.validation_split}"
-        ])
-
-    def __str__(self) -> str:
-        optimizer_dict = {OptimizerType.ADAM: 'adam', OptimizerType.SGD: 'SGD', OptimizerType.RMS_PROP: 'RMSProp'}
-
-        return ";".join([
-            f"{self.dropout_rate}",
             f"{optimizer_dict[self.optimizer]}",
             f"{self.learning_rate}",
             f"{self.epochs}",
@@ -97,7 +82,6 @@ class TrainingSettings:
         """
 
         return ";".join([
-            "Dropout rate",
             "Optimizer",
             "Learning rate",
             "Epochs",

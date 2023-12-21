@@ -5,6 +5,7 @@ from src.const import DEBUG
 class BuiltInModel(Enum):
     ALEXNET = "AlexNet"
     RESNET_PRETRAINED = "ResNet_pretrained"
+    MINI = "Mini"
     UNINITIALIZED = "__uninitialized__"
 
 # Enum defining activation types
@@ -30,6 +31,7 @@ class ModelSettings:
     - middle_layer (MiddleLayerType): Type of middle layer in the model connecting Convolutional layers with Dense layers. Options: 'global_avg', 'maxpool', 'flatten'. 'global_avg' is faster but might lose some information. 'maxpool' is a versatile option. 'flatten' is the best but slower. Default is MiddleLayerType.FLATTEN.
     - dense_layers (list): List of integers specifying sizes for dense layers. The length of this array determines the number of layers in the network. Dropout is applied after each layer excluding the last one. Using power-of-2 numbers is recommended. Default is [512, 512, 512].
     - dense_activation (ActivationType): Activation function used in the neurons of dense layers. Options: 'relu', 'tanh'. 'relu' is faster but the loss function might explode upwards. Default is ActivationType.RELU.
+    - dropout_rate (float): Probability of deactivating the output of any neuron. A number between 0 and 1, helps prevent overfitting.
     - model_name (str): Name of the model. Default is 'model'.
     - builtin (bool): Whether it is a builtin model with predefined architecture. Default is False.
     - pretrained (bool): Whether it is a pretrained model (load model) or a new model. Default is False.
@@ -43,6 +45,7 @@ class ModelSettings:
                  middle_layer: MiddleLayerType = MiddleLayerType.FLATTEN,
                  dense_layers: list = [512, 512, 512],
                  dense_activation: ActivationType = ActivationType.RELU,
+                 dropout_rate: float = 0.2,
                  model_name: str = 'model',
                  builtin = False,
                  pretrained = False):
@@ -68,6 +71,7 @@ class ModelSettings:
         self.middle_layer = middle_layer
         self.dense_layers = dense_layers
         self.dense_activation = dense_activation
+        self.dropout_rate = dropout_rate
         self.model_name = model_name
         self.pretrained = pretrained
         self.builtin = builtin
@@ -103,6 +107,7 @@ class ModelSettings:
             f"{middle_layer_dict[self.middle_layer]}",
             f"{self.dense_layers}",
             f"{activation_dict[self.dense_activation]}",
+            f"{self.dropout_rate}",
         ])
 
     @staticmethod
@@ -123,5 +128,6 @@ class ModelSettings:
             "Convolution sizes",
             "Middle layer",
             "Dense layers",
-            "Dense activation"
+            "Dense activation",
+            "Dropout Rate"
         ])

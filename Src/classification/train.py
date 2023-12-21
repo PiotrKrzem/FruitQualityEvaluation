@@ -68,8 +68,8 @@ def save_statistics(history: tf.keras.callbacks.History, model_settings: ModelSe
 
     id = str(time())
     # Generate names for the model and object
-    model_name = MODELS_PATH + f"{model_settings.model_name}_{model_settings.input_size}_id{id}.h5"
-    graph_name = GRAPHS_PATH + f"graph_{model_settings.model_name}_{model_settings.input_size}_id{id}.png"
+    model_path = MODELS_PATH + f"{model_settings.model_name}_{model_settings.input_size}_id{id}.h5"
+    graph_path = GRAPHS_PATH + f"graph_{model_settings.model_name}_{model_settings.input_size}_id{id}.png"
 
     # Write statistics to file
     with open(STATS_FILE, 'a') as file:
@@ -98,7 +98,6 @@ def save_graph(history: tf.keras.callbacks.History, graph_name: str, model_setti
 
     epochs_range = range(training_settings.epochs)
 
-    
     plt.figure(figsize=(8, 8))
 
     # Creates 2 plots on one graph

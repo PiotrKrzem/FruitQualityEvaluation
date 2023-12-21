@@ -10,8 +10,8 @@ from src.classification.train import *
 
 
 def main():
-    model_settings = get_builtin_model_settings(BuiltInModel.RESNET_PRETRAINED)
-    training_settings = get_builtin_training_settings(BuiltInTraining.DEFAULT)
+    model_settings = get_builtin_model_settings(BuiltInModel.MINI)
+    training_settings = get_builtin_training_settings(BuiltInTraining.MINI)
 
     # Creates graphs, models folders if missing
     create_required_files_and_folders_if_missing()
@@ -50,7 +50,7 @@ def main():
     converted_predictions = tf.where(predictions < 0.5, 0, 1).numpy()
 
     num_images = len(images)
-    num_rows = int(np.ceil(num_images / 3))
+    num_rows = int(min(np.ceil(num_images / 3), 10))
     fig, axes = plt.subplots(nrows=num_rows, ncols=3, figsize=(15, 30))
 
     for i, ax in enumerate(axes.flat):
