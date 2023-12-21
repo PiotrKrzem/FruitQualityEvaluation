@@ -1,31 +1,23 @@
 from os import environ
 
-####
-#### This file contains constant values for the whole program
-####
+# Constants for data and file paths
+FRUITS_PATH = './fruits/'              # Directory containing fruit data
+GRAPHS_PATH = './graphs/'              # Directory for storing generated graphs
+MODELS_PATH = './models/'              # Directory for storing trained models
+STATS_PATH  = './statistics/'          # Directory for storing training statistics
+PREPRC_PATH = './fruits_processed/'    # Directory containing preprocessed fruit images
 
-IMAGES_PATH  = './data/Images/'     # Folder containing multiple folders with dog images
-ANNONS_PATH  = './data/Annotation/' # Folder containing annotations for the dog images
-GRAPHS_PATH  = './Graphs/'          # Folder for where to store graphs
-MODELS_PATH  = './Models/'          # Folder for where to store models after training
+# File paths for statistics
+STATS_FILE = './statistics/models_statistics.csv'    # File storing detailed statistics for each training session
+TEST_FILE  = './statistics/test_statistics.csv'      # File storing statistics for test sessions on selected models
 
-OUTPUTS_PATH = './Processed_Images/'        # Folder containing the augmented doggos images
-PREPRC_PATH  = './Processed_Paths/'         # Folder containing files with paths and breeds of the dogs
-STATS_FILE   = 'models_statistics.csv'      # File which stores statistics about every session
-TEST_FILE    = 'test_set_statistics.csv'    # File which stores statistics of a test session run on a selected model
+# Debug mode
+DEBUG = False   # Debug mode: Processes a subset of data for quicker testing
 
-
-DEBUG = False               # Debug mode - loads/processes only a few images basically instant program execution
-IMAGE_SIZE = 64             # Size to which all images and masks will be rescaled
-DEMO_MODEL = 'alexGG.h5'    # Demo model used in demonstrations if no arguments were given
-DEMO_FILE  = 'example.png'  # Demo image used in demonstrations if no arguments were given
-
+# Set TensorFlow log level based on debug mode
 if not DEBUG:
-    # This silences obnoxious tensorflow messages
+    # Silence less relevant TensorFlow messages in non-debug mode
     environ['TF_CPP_MIN_LOG_LEVEL'] = "1"
 else:
+    # Allow more detailed TensorFlow messages in debug mode
     environ['TF_CPP_MIN_LOG_LEVEL'] = "0"
-
-
-
-

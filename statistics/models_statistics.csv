@@ -1,0 +1,1 @@
+Accuracy;Loss;Model name;Pretrained;Input size;Convolution layers;Convolution activation;Convolution sizes;Middle layer;Dense layers;Dense activation;Dropout rate;Optimizer;Learning rate;Epochs;Batch size;Validation split;
