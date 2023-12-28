@@ -50,8 +50,8 @@ def main():
     converted_predictions = tf.where(predictions < 0.5, 0, 1).numpy()
 
     num_images = len(images)
-    num_rows = int(min(np.ceil(num_images / 3), 10))
-    fig, axes = plt.subplots(nrows=num_rows, ncols=3, figsize=(15, 30))
+    # num_rows = int(min(np.ceil(num_images / 3), 4))
+    fig, axes = plt.subplots(nrows=4, ncols=4, figsize=(8, 8))
 
     for i, ax in enumerate(axes.flat):
         if i < num_images:

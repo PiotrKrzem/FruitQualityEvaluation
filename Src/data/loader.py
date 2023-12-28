@@ -49,26 +49,6 @@ def verify_preprocessing_complete() -> None:
     Throws an error and stop the program execution if not.
     '''
     print("[INFO] Veryfying if preprocessing completed...")
-    # s = str(IMAGE_SIZE)
-
-    # # Tests for folders genenerated by preprocessor and csv files
-    # conditions_satisfied = (os.path.exists(IMAGES_PATH) and
-    #     os.path.exists(ANNONS_PATH) and
-    #     os.path.exists(OUTPUTS_PATH+s) and
-    #     os.path.exists(PREPRC_PATH+s+".csv") and 
-    #     os.path.getsize(PREPRC_PATH+s+".csv")>0 and
-    #     len(os.listdir(OUTPUTS_PATH+s))>=len(os.listdir(IMAGES_PATH)))
-
-    # if not conditions_satisfied:
-    #     print("[ERR] Preprocessing was not yet completed for {}x{} image size. Please run preprocessor.py before launching this code".format(s,s))
-    #     exit(-1) 
-
-    # # Checks if image shape match the ones requested by the CONST file
-    # test_image_shape = cv2.imread(OUTPUTS_PATH+s+'/'+os.listdir(OUTPUTS_PATH+s)[0]).shape
-    # if(test_image_shape != (IMAGE_SIZE, IMAGE_SIZE,3)):
-    #     print("[ERR] Image size in const.py ({}) does not match preprocessed images' (folder: {}, test image: {}). Re-leaunch preprocesor to fix this".format(IMAGE_SIZE,s, test_image_shape[0]))
-    #     exit(-1)
-
     print("[INFO] Success!")
     
 def get_train_validation_test_data(model_settings: ModelSettings, training_settings: TrainingSettings):
