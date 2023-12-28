@@ -2,7 +2,6 @@ from typing import List
 
 from src.const import TEST_FILE
 
-
 class DataRow:
     name:str
     correct:int
