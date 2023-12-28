@@ -90,6 +90,7 @@ def save_graph(history: tf.keras.callbacks.History, graph_name: str, model_setti
     and saves them to GRAPHS folder.
     '''
 
+    # https://stackoverflow.com/questions/41908379/keras-plot-training-validation-and-test-set-accuracy
     # Extract interesting statistics
     acc  = history.history['accuracy']
     loss = history.history['loss']
@@ -98,26 +99,26 @@ def save_graph(history: tf.keras.callbacks.History, graph_name: str, model_setti
 
     epochs_range = range(training_settings.epochs)
 
-    plt.figure(figsize=(8, 8))
+    fig, axes = plt.subplots(nrows=2, ncols=1, figsize=(8, 8))
 
-    # Creates 2 plots on one graph
-    # First one represents the changing accuracy over epochs
-    plt.subplot(1, 2, 1)
-    plt.plot(epochs_range, acc, label='Training Accuracy')
-    plt.plot(epochs_range, val_acc, label='Validation Accuracy')
-    plt.xlabel('Epochs')
-    plt.ylabel('Accuracy')
-    plt.legend(loc='upper left')
-    plt.title('Accuracy')
+    # # Creates 2 plots on one graph
+    # # First one represents the changing accuracy over epochs
+    axes[0].plot(epochs_range, acc, label='Training Accuracy')
+    axes[0].plot(epochs_range,val_acc, label='Validation Accuracy')
+    axes[0].legend(loc='upper left')
+    axes[0].set_xlabel('Epochs')
+    axes[0].set_ylabel('Accuracy')
+    axes[0].set_ylim([min(min(acc), min(val_acc)), 1])
+    axes[0].set_title('Accuracy')
 
-    # Second one represents the changing loss over epochs
-    plt.subplot(1, 2, 2)
-    plt.plot(epochs_range, loss, label='Training Loss')
-    plt.plot(epochs_range, val_loss, label='Validation Loss')
-    plt.xlabel('Epochs')
-    plt.ylabel('Loss')
-    plt.legend(loc='upper left')
-    plt.title('Loss')
+    # # Second one represents the changing loss over epochs
+    axes[1].plot(epochs_range, loss, label='Training Loss')
+    axes[1].plot(epochs_range,val_loss, label='Validation Loss')
+    axes[1].legend(loc='upper left')
+    axes[1].set_xlabel('Epochs')
+    axes[1].set_ylabel('Loss')
+    axes[1].set_ylim([0, 1.0])
+    axes[1].set_title('Loss')
 
     # Saves the figure to GRAPHS folder
     plt.savefig(graph_name)

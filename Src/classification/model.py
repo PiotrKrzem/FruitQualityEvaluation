@@ -110,6 +110,7 @@ def get_builtin_model(model_settings: ModelSettings) -> tf.keras.models.Sequenti
     elif model_settings.model_name == BuiltInModel.RESNET_PRETRAINED.value:
         inputs = layers.Input(shape=(model_settings.input_size, model_settings.input_size, 3))
 
+        # https://www.tensorflow.org/tutorials/images/data_augmentation
         data_augmentation = tf.keras.Sequential([
             tf.keras.layers.RandomFlip('horizontal'),
             tf.keras.layers.RandomRotation(0.2),
@@ -117,6 +118,7 @@ def get_builtin_model(model_settings: ModelSettings) -> tf.keras.models.Sequenti
 
         normalisation = tf.keras.applications.resnet.preprocess_input(data_augmentation)
 
+        # https://www.tensorflow.org/api_docs/python/tf/keras/applications/resnet/ResNet152
         resnet = tf.keras.applications.resnet.ResNet152(
             include_top=False,
             weights='imagenet',
