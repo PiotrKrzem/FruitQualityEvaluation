@@ -13,6 +13,7 @@ class ActivationType(Enum):
     RELU = "relu"
     GELU = "gelu"
     TANH = "tanh"
+    SIGMOID = "sigmoid"
 
 # Enum defining middle layer types
 class MiddleLayerType(Enum):
@@ -21,7 +22,8 @@ class MiddleLayerType(Enum):
     AVERAGE_POOL = "average_pool"
 
 class ModelSettings:
-    """Class to store model parameters.
+    '''
+    Class to store model parameters.
 
     Parameters:
     - input_size (int): Size of the input data. If the images have not been processed to this size, a preprocessor sequence will execute before training. Input size is a single integer that is later expanded to [input_size, input_size, 3].
@@ -35,7 +37,7 @@ class ModelSettings:
     - model_name (str): Name of the model. Default is 'model'.
     - builtin (bool): Whether it is a builtin model with predefined architecture. Default is False.
     - pretrained (bool): Whether it is a pretrained model (load model) or a new model. Default is False.
-    """
+    '''
 
     def __init__(self,
                  input_size: int = 32,
@@ -45,11 +47,12 @@ class ModelSettings:
                  middle_layer: MiddleLayerType = MiddleLayerType.FLATTEN,
                  dense_layers: list = [512, 512, 512],
                  dense_activation: ActivationType = ActivationType.RELU,
+                 output_activation: ActivationType = ActivationType.SIGMOID,
                  dropout_rate: float = 0.2,
                  model_name: str = 'model',
                  builtin = False,
                  pretrained = False):
-        """
+        '''
         Initialize ModelSettings with specified parameters.
 
         Parameters:
@@ -60,9 +63,10 @@ class ModelSettings:
         - middle_layer (MiddleLayerType): Type of middle layer in the model.
         - dense_layers (list): List of integers specifying sizes for dense layers.
         - dense_activation (ActivationType): Activation function for dense layers.
+        - output_activation (ActivationType): Activation function for output layer.
         - model_name (str): Name of the model.
         - pretrained (bool): Whether the model is pretrained.
-        """
+        '''
 
         self.input_size = input_size
         self.convolution_layers = convolution_layers
@@ -71,6 +75,7 @@ class ModelSettings:
         self.middle_layer = middle_layer
         self.dense_layers = dense_layers
         self.dense_activation = dense_activation
+        self.output_activation = output_activation
         self.dropout_rate = dropout_rate
         self.model_name = model_name
         self.pretrained = pretrained

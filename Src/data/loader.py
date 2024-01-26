@@ -1,7 +1,4 @@
 import os
-import cv2
-import pandas
-import numpy as np
 import tensorflow as tf
 
 from src.const import *
@@ -22,7 +19,7 @@ def create_required_files_and_folders_if_missing() -> None:
     if(not os.path.exists(STATS_PATH)):
         os.mkdir(STATS_PATH)
 
-    # Creates the statistics file that will hold trainig results
+    # Creates the statistics file that will hold training results
     if(not os.path.exists(STATS_FILE)):
         with open(STATS_FILE, 'w') as file:
             file.write(";".join([
@@ -41,17 +38,11 @@ def create_required_files_and_folders_if_missing() -> None:
                 ModelSettings.get_header(),
                 "\n"
             ]))
-
-
-def verify_preprocessing_complete() -> None:
-    '''
-    Checks if the preprocessing was completed.\n
-    Throws an error and stop the program execution if not.
-    '''
-    print("[INFO] Veryfying if preprocessing completed...")
-    print("[INFO] Success!")
     
 def get_train_validation_test_data(model_settings: ModelSettings, training_settings: TrainingSettings):
+    '''
+    Method split the dataset into train, validation and testing.
+    '''
     train, test = tf.keras.utils.image_dataset_from_directory(
         FRUITS_PATH,
         validation_split=training_settings.validation_split,

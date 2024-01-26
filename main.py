@@ -7,6 +7,7 @@ from src.settings.builtin_training import *
 
 from src.classification.model import *
 from src.classification.train import *
+from src.classification.test import *
 
 
 def main():
@@ -16,9 +17,6 @@ def main():
     # Creates graphs, models folders if missing
     create_required_files_and_folders_if_missing()
 
-    # Main code requires preprocessing to finish succesfully
-    verify_preprocessing_complete() # TODO, For now does nothing
-
     # Load features and labels datasets into memory with selected features
     train, validation, test = get_train_validation_test_data(model_settings, training_settings)
 
@@ -26,10 +24,10 @@ def main():
     model = create_model(model_settings)
 
     # Compiles the model and prints its summary
-    compiled_model = compile_model(model, model_settings, training_settings)
+    compiled_model = compile_model(model, training_settings)
 
-    # Trains the model over given amoount of epochs, tests data on validation dataset
-    compiled_model, history = train_model(compiled_model, train, validation, model_settings, training_settings)
+    # Trains the model over given amount of epochs, tests data on validation dataset
+    compiled_model, history = train_model(compiled_model, train, validation, training_settings)
 
     # Saves the accuracy & loss graphs, saves statistics to the CSV file
     model_path, graph_path = save_statistics(history, model_settings, training_settings)
@@ -40,30 +38,9 @@ def main():
     # Saves model into the folder with name specified below (adds unique id to the file name)
     save_model(compiled_model, model_path)
 
-    ## ================= Od Marcina <3 ==========================
-    loss, accuracy = compiled_model.evaluate(test)
-    print(loss, accuracy)
-
-    images, labels = test.as_numpy_iterator().next()
-    predictions = compiled_model.predict_on_batch(images).flatten()
-
-    converted_predictions = tf.where(predictions < 0.5, 0, 1).numpy()
-
-    num_images = len(images)
-    # num_rows = int(min(np.ceil(num_images / 3), 4))
-    fig, axes = plt.subplots(nrows=4, ncols=4, figsize=(8, 8))
-
-    for i, ax in enumerate(axes.flat):
-        if i < num_images:
-            ax.imshow(images[i] / 255)
-            ax.set_xticks([])
-            ax.set_yticks([])
-            ax.set_xlabel(f"True: {labels[i]}\nPred: {converted_predictions[i]}")
-        else:
-            ax.axis('off')
-
-    plt.tight_layout()
-    plt.show()
+    # Testing trained model on previously prepared data
+    test_model(compiled_model, test)
+    
 
 if __name__ == "__main__":
     main()
