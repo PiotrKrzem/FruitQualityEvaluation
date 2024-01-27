@@ -10,3 +10,6 @@ Accuracy;Loss;Model name;Pretrained;Input size;Convolution layers;Convolution ac
 0.546;0.013;Mini;False;32;[[16, 16], [32, 32]];relu;[3, 3];max_pool;[1024, 1024];relu;0.1;adam;0.001;10;256;0.2;
 0.998;0.004;Mini;False;32;[[16, 16], [32, 32]];relu;[3, 3];max_pool;[1024, 1024];relu;0.1;adam;0.001;10;256;0.2;
 0.993;0.025;Mini;False;32;[[16, 16], [32, 32]];relu;[3, 3];max_pool;[1024, 1024];relu;0.1;adam;0.001;10;256;0.2;
+0.996;0.012;Mini;False;32;[[16, 16], [32, 32]];relu;[3, 3];max_pool;[1024, 1024];relu;0.1;adam;0.001;10;256;0.2;
+0.981;0.041;AlexNet;False;32;[[16, 16], [32, 32], [64, 64]];relu;[3, 3, 3];max_pool;[1024, 1024];relu;0.2;adam;0.001;10;256;0.2;
+0.999;0.008;Mini;False;32;[[16, 16], [32, 32]];relu;[3, 3];max_pool;[1024, 1024];relu;0.1;adam;0.001;10;256;0.2;
