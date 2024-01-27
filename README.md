@@ -40,10 +40,16 @@ By default, the command will:
 5. Test the network on the test data set
 
 In order to construct different network, the user have to change the main script by selecting different *BuiltInModel*
-in lines 14 and 15. Available types include:
+in line 14. Available types include:
 - **ALEXNET**
 - **RESNET_PRETRAINED**
 - **MINI** (custom CNN)
+
+It is also possible to specify different training setting, by using different *BuiltInTraining* in line 15.
+Available types include:
+- **DEFAULT**
+- **MINI**
+- **RESNET**
 
 It is also possible to play with different configurations of network models and training parameters.
 All configurations are placed within *./settings/builtin_models.py* and *./settings/builtin_training.py* files and can be changed from there.
