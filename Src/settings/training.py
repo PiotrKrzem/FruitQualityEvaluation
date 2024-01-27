@@ -5,6 +5,7 @@ from enum import Enum
 class BuiltInTraining(Enum):
     DEFAULT = "default"
     MINI = "mini"
+    RESNET = "resnet"
     UNINITIALIZED = "__uninitialized__"
 
 # Enum defining optimizer types
