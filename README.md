@@ -8,17 +8,29 @@ Utilize images of fruits to create a CNN classifier capable of evaluating the qu
 
 ## Before Running
 
-1. Download the following dataset: 
-   [Fruit Quality Dataset](https://drive.google.com/drive/folders/12BZO95o4ZY7YpTlH9GuZd1S5D1mq7HUw?usp=sharing)
-   Important! Please download entire *fruits* folder (not only *good_quality* or *bad_quality* folders)!
-3. Extract downloaded *zip* and place its content explicitly in the source directory of the project under the name *fruits*
-   It means that, the directory tree, after these operations should have the following directories:
+1. The dataset and pre-trained models can be found under the following directory: 
+   [Fruit Quality Dataset and Models](https://drive.google.com/drive/folders/1lD_cLQZnzv_IjkSNbMOLxdK1mQa86tEC?usp=sharing)
+   If you would like to download dataset + pre-trained then download the entire directory
+   However, if you need only pre-trained models (testing data is already included within the project), then simply download files *alexnet.h5*, *mini.h5* and *resnet_based.h5*.
+2. Extract downloaded *zip*
+3. To add input data, place the directory *fruits* explicitly in the source directory of the project.
+   It means that, the directory tree, after these operations should have the following structure:
    |--**fruits** <-- directory with pictures of fruits
    |  |--bad_quality
    |  |--good_quality
    |--src
+   |--testing
+4. The files *alexnet.h5*, *mini.h5* and *resnet_based.h5* are pre-trained models used in testing, therefore they should be placed within *./testing* directory.
+   It means that, afterwards *./testing* directory should look as follows:
+   |--fruits_original_dataset
+   |--fruits_random_dataset
+   |--alexnet.h5
+   |--mini.h5
+   |--resnet_based.h5
+   |--runner.ipynb
 
-4. In the command line, navigate to the project directory and run (preferably on a fresh Python environment):
+   Important! All 3 models must be placed in *./testing* directory in order for the tests to work! 
+5. In the command line, navigate to the project directory and run (preferably on a fresh Python environment):
    - Windows:
      `python -m pip install -r requirements.txt`
    - Linux/Mac:
@@ -60,7 +72,7 @@ In order to simply test how pre-trained networks work on different images, pleas
 ## Testing pre-trained models
 
 In order to test pre-trained AlexNet, ResNet and custom CNN networks, navigate to the *./testing* directory.
-Here, all of the pre-trained models of the networks have been placed.
+Here, all of the pre-trained models of the networks should been placed.
 
 In directory *./training/fruits_random_images* and *./training/fruits_original_images sample images have been placed, so that they can be used in testing.
 
