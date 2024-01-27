@@ -1,10 +1,7 @@
 import os
 import numpy as np
 import tensorflow as tf
-import matplotlib.pyplot as plt
 
-from time import time
-from typing import Tuple
 from tensorflow.keras import layers
 
 from src.const import *
@@ -12,10 +9,10 @@ from src.settings.model import *
 from src.settings.training import *
 
 def create_model(model_settings: ModelSettings) -> tf.keras.models.Sequential:
-    """Creates a custom model based n input arguments.
+    '''
+    Creates a custom model based n input arguments.
     Model's structure: Input layer -> Conv2Ds -> Middle layer -> Dense layers -> Output layer.
-    Output layer is a Dense layer with softmax activation.
-    """
+    '''
 
     if not model_settings.pretrained: # F, [T, F]
         return construct_model(model_settings)
@@ -25,10 +22,10 @@ def create_model(model_settings: ModelSettings) -> tf.keras.models.Sequential:
         return get_builtin_model(model_settings)
 
 def construct_model(model_settings: ModelSettings) -> tf.keras.models.Sequential:
-    """Constructs a custom model based n input arguments.
+    '''
+    Constructs a custom model based n input arguments.
     Model's structure: Input layer -> Conv2Ds -> Middle layer -> Dense layers -> Output layer.
-    Output layer is a Dense layer with softmax activation.
-    """
+    '''
 
     model = tf.keras.Sequential()
 
@@ -98,12 +95,15 @@ def construct_model(model_settings: ModelSettings) -> tf.keras.models.Sequential
     # Output layer - dense layer that will output a value with quality prediction
     model.add(layers.Dense(
         1,
-        activation='softmax'
+        activation=model_settings.output_activation.value
     ))
     
     return model
 
 def get_builtin_model(model_settings: ModelSettings) -> tf.keras.models.Sequential:
+    '''
+    Method returns built-in model based on indicated model settings.
+    '''
     if model_settings.model_name == BuiltInModel.ALEXNET.value:
         return construct_model(model_settings)
 

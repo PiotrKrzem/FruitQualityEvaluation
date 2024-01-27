@@ -14,7 +14,8 @@ class OptimizerType(Enum):
     RMS_PROP = "rms_prop"
 
 class TrainingSettings:
-    """Class to store training parameters.
+    '''
+    Class to store training parameters.
 
     Parameters:
     - optimizer (OptimizerType): Optimizer used in the network. Options: 'SGD' (momentum gradient descent), 'RMSprop' (decaying learning rate), 'adam' (both). 'adam' is generally a good choice.
@@ -24,7 +25,7 @@ class TrainingSettings:
     - validation_split (float): Percentage of data used for validation.
     - print_summary (bool): Toggle for verbose output.
     - verbose (bool): Print network summary upon creation.
-    """
+    '''
 
     def __init__(self,
                  optimizer: OptimizerType = OptimizerType.ADAM,
@@ -34,7 +35,7 @@ class TrainingSettings:
                  validation_split: float = 0.1,
                  print_summary: bool = True,
                  verbose: bool = True):
-        """
+        '''
         Initialize TrainingSettings with specified parameters.
 
         Parameters:
@@ -46,7 +47,7 @@ class TrainingSettings:
         - validation_split: float, percentage of data to be used for validation
         - print_summary: bool, whether to print a model summary during training
         - verbose: bool, whether to display verbose training information
-        """
+        '''
 
         self.optimizer = optimizer
         self.learning_rate = learning_rate
@@ -74,12 +75,12 @@ class TrainingSettings:
 
     @staticmethod
     def get_header() -> str:
-        """
+        '''
         Return a list of semicolon separated column names.
 
         Returns:
         - str, formatted string representation of the header
-        """
+        '''
 
         return ";".join([
             "Optimizer",

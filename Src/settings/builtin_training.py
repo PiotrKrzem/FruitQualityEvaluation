@@ -1,6 +1,9 @@
 from src.settings.training import *
 
 def get_builtin_training_settings(training: BuiltInTraining):
+    '''
+    Method returns settings used in model training based on the indicated model training type.
+    '''
     if training == BuiltInTraining.DEFAULT:
         output =  _get_default()
     elif training == BuiltInTraining.MINI:

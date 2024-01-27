@@ -1,17 +1,14 @@
-import numpy as np
 import tensorflow as tf
 import matplotlib.pyplot as plt
 
 from time import time
-from typing import Tuple
-from tensorflow.keras import layers
 
 from src.const import *
 from src.settings.model import *
 from src.settings.training import *
 
 
-def compile_model(model:tf.keras.Sequential, model_settings: ModelSettings, training_settings: TrainingSettings) -> tf.keras.models.Sequential:
+def compile_model(model:tf.keras.Sequential, training_settings: TrainingSettings) -> tf.keras.models.Sequential:
     '''
     Compiles the model with selected optimizer (adam/SGD/RMSProp) and learning rate.\n
     Uses 'accuracy' as a measure statistic, Categorical Cross Entropy loss function. 
@@ -27,7 +24,11 @@ def compile_model(model:tf.keras.Sequential, model_settings: ModelSettings, trai
     model.compile(
         optimizer = opt,
         loss = tf.keras.losses.BinaryCrossentropy(),
-        metrics = ['accuracy']
+        metrics = ['accuracy',
+                    tf.keras.metrics.TruePositives(name='true_positives'),
+                    tf.keras.metrics.TrueNegatives(name='true_negatives'),
+                    tf.keras.metrics.FalsePositives(name='false_positives'),
+                    tf.keras.metrics.FalseNegatives(name='false_negatives')]
     )
 
     # Prints summary of the model, mostly for debug
@@ -39,7 +40,6 @@ def compile_model(model:tf.keras.Sequential, model_settings: ModelSettings, trai
 def train_model(model:tf.keras.Sequential, 
                 train_dataset: tf.data.Dataset,
                 validation_dataset: tf.data.Dataset,
-                model_settings: ModelSettings,
                 training_settings: TrainingSettings):
     '''
     Trains the model using provided images and labels.

@@ -1,7 +1,9 @@
-from enum import Enum
 from src.settings.model import *
 
 def get_builtin_model_settings(model: BuiltInModel):
+    '''
+    Method returns builtin settings of the model based on the indicated model type.
+    '''
     if model == BuiltInModel.ALEXNET:
         output =  _get_alexnet()
     elif model == BuiltInModel.RESNET_PRETRAINED:
@@ -37,6 +39,7 @@ def _get_alexnet():
             1024
         ],
         dense_activation=ActivationType.RELU,
+        output_activation=ActivationType.SIGMOID,
         dropout_rate=0.2,
         model_name=BuiltInModel.UNINITIALIZED,
         builtin=True,
@@ -58,10 +61,11 @@ def _get_mini():
         ],
         middle_layer=MiddleLayerType.MAX_POOL,
         dense_layers=[
-            256,
-            256,
+            1024,
+            1024,
         ],
         dense_activation=ActivationType.RELU,
+        output_activation=ActivationType.SIGMOID,
         dropout_rate=0.1,
         model_name=BuiltInModel.UNINITIALIZED,
         builtin=True,
@@ -70,7 +74,7 @@ def _get_mini():
 
 def _get_resnet_pretrained():
     return ModelSettings(
-        input_size=224,
+        input_size=256,
         model_name=BuiltInModel.UNINITIALIZED,
         builtin=True,
         pretrained=True
